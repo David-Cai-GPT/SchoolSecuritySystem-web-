@@ -15,15 +15,12 @@
         class="page-login--content"
         flex="dir:top main:justify cross:stretch box:justify">
         <div class="page-login--content-header">
-          <p class="page-login--content-header-motto">
-            时间是一切财富中最宝贵的财富
-          </p>
         </div>
         <div
           class="page-login--content-main"
           flex="dir:top main:center cross:center">
-          <!-- logo -->
-          <img class="page-login--logo" src="./image/logo@2x.png">
+          <!-- Title -->
+          <h1>校园综合安防系统</h1>
           <!-- form -->
           <div class="page-login--form">
             <el-card shadow="never">
@@ -71,13 +68,14 @@
             <p
               class="page-login--options"
               flex="main:justify cross:center">
-              <span><d2-icon name="question-circle"/> 忘记密码</span>
-              <span>注册用户</span>
+              <el-button class="page-login--quick" size="default" type="warning">
+              忘记密码
+            </el-button>
+              <el-button class="page-login--quick" size="default" type="success" @click="dialogVisible = true">
+              立即注册
+            </el-button>
             </p>
             <!-- quick login -->
-            <el-button class="page-login--quick" size="default" type="info" @click="dialogVisible = true">
-              快速选择用户（测试功能）
-            </el-button>
           </div>
         </div>
         <div class="page-login--content-footer">
@@ -89,34 +87,34 @@
               {{ language.label }}
             </a>
           </p>
-          <p class="page-login--content-footer-copyright">
-            Copyright
-            <d2-icon name="copyright"/>
-            2018 D2 Projects 开源组织出品
-            <a href="https://github.com/FairyEver">
-              @FairyEver
-            </a>
-          </p>
-          <p class="page-login--content-footer-options">
-            <a href="#">帮助</a>
-            <a href="#">隐私</a>
-            <a href="#">条款</a>
-          </p>
         </div>
       </div>
     </div>
     <el-dialog
-      title="快速选择用户"
+      title="注册"
       :visible.sync="dialogVisible"
-      width="400px">
-      <el-row :gutter="10" style="margin: -20px 0px -10px 0px;">
-        <el-col v-for="(user, index) in users" :key="index" :span="8">
-          <div class="page-login--quick-user" @click="handleUserBtnClick(user)">
-            <d2-icon name="user-circle-o"/>
-            <span>{{user.name}}</span>
-          </div>
-        </el-col>
-      </el-row>
+      width="500px">
+    <el-form ref="form" status-icon :rules="registerRules" :model="newUser" label-width="80px">
+      <el-form-item label="用户名" prop="userName">
+        <el-input v-model="newUser.userName"  placeholder="请输入用户名"></el-input>
+      </el-form-item>
+      <el-form-item label="密码" prop="password">
+        <el-input v-model="newUser.password" show-password  placeholder="请输入密码"></el-input>
+      </el-form-item>
+      <el-form-item label="确认密码" prop="checkedPassword">
+        <el-input v-model="newUser.checkedPassword" show-password  placeholder="请确认密码"></el-input>
+      </el-form-item>
+      <el-form-item label="角色" prop="role">
+      <el-radio-group v-model="newUser.role">
+      <el-radio-button label=1>学生</el-radio-button>
+      <el-radio-button label=2>教师</el-radio-button>
+      <el-radio-button label=3>职工</el-radio-button>
+    </el-radio-group>
+      </el-form-item>
+      <el-button  style="width: 60%;margin-left: 21%;" size="default" type="success" @click="registerSubmit()">
+              注册
+      </el-button>
+    </el-form>
     </el-dialog>
   </div>
 </template>
@@ -125,17 +123,43 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import localeMixin from '@/locales/mixin.js'
-import service from '../../../plugin/axios'
+import { register } from './index'
 export default {
   mixins: [
     localeMixin
   ],
   data () {
+    var validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'))
+      } else {
+        if (this.newUser.checkedPassword !== '') {
+          this.$refs.Form.validateField('checkedPassword')
+        }
+        callback()
+      }
+    }
+    var validatePass2 = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请再次输入密码'))
+      } else if (value !== this.newUser.password) {
+        callback(new Error('两次输入密码不一致!'))
+      } else {
+        callback()
+      }
+    }
     return {
       timeInterval: null,
       time: dayjs().format('HH:mm:ss'),
       // 快速选择用户
       dialogVisible: false,
+      newUser:
+      {
+        userName: '',
+        password: '',
+        checkedPassword: '',
+        role: ''
+      },
       users: [
         {
           name: 'Admin',
@@ -182,6 +206,30 @@ export default {
             trigger: 'blur'
           }
         ]
+      },
+      registerRules: {
+        userName: [
+          {
+            required: true,
+            message: '请输入用户名',
+            trigger: 'blur'
+          }
+        ],
+        password: [
+          {
+            validator: validatePass,
+            trigger: 'blur'
+          }
+        ],
+        checkedPassword: [
+          {
+            validator: validatePass2,
+            trigger: 'blur'
+          }
+        ],
+        role: [
+          { required: true, message: '请选择角色', trigger: 'change' }
+        ]
       }
     }
   },
@@ -209,6 +257,13 @@ export default {
       this.formLogin.password = user.password
       this.submit()
     },
+    registerSubmit () {
+      register({
+        userName: this.newUser.userName,
+        password: this.newUser.password,
+        role: this.newUser.role
+      })
+    },
     /**
      * @description 提交表单
      */
@@ -225,9 +280,6 @@ export default {
           })
             .then(() => {
               // 重定向对象不存在则返回顶层路径
-              service.post('http://localhost:8080/register', {}).then((res) => {
-                console.log(Response.data)
-              })
               this.$router.replace(this.$route.query.redirect || '/')
             })
         } else {
