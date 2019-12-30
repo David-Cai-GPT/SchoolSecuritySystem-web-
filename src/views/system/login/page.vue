@@ -258,10 +258,17 @@ export default {
       this.submit()
     },
     registerSubmit () {
-      register({
-        userName: this.newUser.userName,
-        password: this.newUser.password,
-        role: this.newUser.role
+      this.$refs.form.validate((valid) => {
+        if (valid) {
+          register({
+            userName: this.newUser.userName,
+            password: this.newUser.password,
+            role: this.newUser.role
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
       })
     },
     /**
