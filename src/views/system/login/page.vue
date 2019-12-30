@@ -123,7 +123,8 @@
 import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import localeMixin from '@/locales/mixin.js'
-import { register } from './index'
+import { register, accountLogin } from './index'
+// import util from '@/libs/util.js'
 export default {
   mixins: [
     localeMixin
@@ -160,28 +161,28 @@ export default {
         checkedPassword: '',
         role: ''
       },
-      users: [
-        {
-          name: 'Admin',
-          username: 'admin',
-          password: 'admin'
-        },
-        {
-          name: 'Editor',
-          username: 'editor',
-          password: 'editor'
-        },
-        {
-          name: 'User1',
-          username: 'user1',
-          password: 'user1'
-        }
-      ],
+      // users: [
+      //   {
+      //     name: 'Admin',
+      //     username: 'admin',
+      //     password: 'admin'
+      //   },
+      //   {
+      //     name: 'Editor',
+      //     username: 'editor',
+      //     password: 'editor'
+      //   },
+      //   {
+      //     name: 'User1',
+      //     username: 'user1',
+      //     password: 'user1'
+      //   }
+      // ],
       // 表单
       formLogin: {
-        username: 'admin',
-        password: 'admin',
-        code: 'v9am'
+        username: 'caidawei',
+        password: '123456',
+        code: '123'
       },
       // 表单校验
       rules: {
@@ -278,19 +279,23 @@ export default {
     submit () {
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          // 登录
-          // 注意 这里的演示没有传验证码
-          // 具体需要传递的数据请自行修改代码
-          this.login({
+          accountLogin({
             username: this.formLogin.username,
             password: this.formLogin.password
           })
-            .then(() => {
-              // 重定向对象不存在则返回顶层路径
-              this.$router.replace(this.$route.query.redirect || '/')
-            })
+            // .then(async res => {
+            //   util.cookies.set('uuid', res.uuid)
+            //   util.cookies.set('token', res.token)
+            // })
+            .then((response) => {
+              if (response === true) {
+                this.$router.push({ name: 'index' })
+              } else {
+                this.$message.error('登录失败,用户名或密码错误')
+              }
+            }
+            )
         } else {
-          // 登录表单校验失败
           this.$message.error('表单校验失败，请检查')
         }
       })

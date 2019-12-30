@@ -8,4 +8,13 @@ export function register (data) {
     data: data
   })
 }
+
+export function accountLogin (data) {
+  return request({
+    url: '/User/login',
+    method: 'post',
+    data: data
+  })
+}
+
 export default page
