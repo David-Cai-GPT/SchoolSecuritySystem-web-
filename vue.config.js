@@ -29,17 +29,8 @@ module.exports = {
   publicPath,
   lintOnSave: true,
   devServer: {
-    publicPath, // 和 publicPath 保持一致
-    proxy: {
-      '/api': {
-        target: 'http//10.12.65.120:8080',
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+    proxy: 'http://10.12.65.120:8080',
+    port: 8085
   },
   css: {
     loaderOptions: {
