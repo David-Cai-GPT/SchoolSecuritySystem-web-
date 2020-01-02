@@ -124,6 +124,7 @@ import dayjs from 'dayjs'
 import { mapActions } from 'vuex'
 import localeMixin from '@/locales/mixin.js'
 import { register, accountLogin } from './index'
+import util from '@/libs/util.js'
 // import util from '@/libs/util.js'
 export default {
   mixins: [
@@ -249,15 +250,6 @@ export default {
     refreshTime () {
       this.time = dayjs().format('HH:mm:ss')
     },
-    /**
-     * @description 接收选择一个用户快速登录的事件
-     * @param {Object} user 用户信息
-     */
-    handleUserBtnClick (user) {
-      this.formLogin.username = user.username
-      this.formLogin.password = user.password
-      this.submit()
-    },
     registerSubmit () {
       this.$refs.form.validate((valid) => {
         if (valid) {
@@ -289,6 +281,8 @@ export default {
             // })
             .then((response) => {
               if (response === true) {
+                util.cookies.set('uuid', 'admin-user')
+                util.cookies.set('token', 'asdfasdfasdfasdfasdf')
                 this.$router.push({ name: 'index' })
               } else {
                 this.$message.error('登录失败,用户名或密码错误')
