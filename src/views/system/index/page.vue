@@ -36,7 +36,14 @@
       </el-col>
     </el-row>
      <div>
-      <ve-pie :data="chartData"></ve-pie>
+      <ve-pie :data="{
+        columns: ['role', 'number'],
+        rows: [
+          { 'role': '学生', 'number': studentNum },
+          { 'role': '教师', 'number': teacherNum },
+          { 'role': '职员', 'number': employeeNum }
+        ]
+      }"></ve-pie>
     </div>
   </d2-container>
 </template>
@@ -50,15 +57,7 @@ export default {
       studentNum: 0,
       teacherNum: 0,
       employeeNum: 0,
-      userNum: 0,
-      chartData: {
-        columns: ['role', 'number'],
-        rows: [
-          { 'role': '学生', 'number': 1393 },
-          { 'role': '教师', 'number': 3530 },
-          { 'role': '职员', 'number': 2923 }
-        ]
-      }
+      userNum: 0
     }
   },
   mounted: function () {
