@@ -29,7 +29,7 @@ module.exports = {
   publicPath,
   lintOnSave: true,
   devServer: {
-    proxy: 'http://10.12.65.120:8080',
+    proxy: 'http://localhost:8080',
     port: 8085
   },
   css: {

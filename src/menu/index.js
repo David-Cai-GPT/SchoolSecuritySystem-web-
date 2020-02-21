@@ -13,8 +13,11 @@ import demoBusiness from './modules/demo-business'
 // CRUD
 import demoD2Crud from './modules/demo-d2-crud'
 // 第三方网页
-import demoFrame from './modules/demo-frame'
-
+import Frame from './modules/demo-frame'
+// 正式开发查询功能
+import Query from './modules/QueryAllInfomation'
+// 正式开发活动活动管理功能
+import activityManager from './modules/ActivityManager'
 // 菜单 侧边栏
 export const menuAside = [
   demoComponents,
@@ -24,7 +27,9 @@ export const menuAside = [
   demoPlayground,
   demoBusiness,
   demoD2Crud,
-  demoFrame
+  Frame,
+  Query,
+  activityManager
 ]
 
 // 菜单 顶栏
@@ -38,22 +43,22 @@ export const menuHeader = [
     title: '功能',
     icon: 'puzzle-piece',
     children: [
+      Query, // 查询
+      activityManager, // 活动管理
       demoD2Crud,
       demoComponents,
       demoElement,
       demoCharts,
       demoPlugins,
-      demoFrame,
+      Frame,
       {
         title: '新窗口打开链接',
         icon: 'link',
         children: [
-          { path: 'https://github.com/d2-projects/d2-admin', title: 'D2Admin Github', icon: 'github' },
-          { path: 'https://juejin.im/user/57a48b632e958a006691b946/posts', title: '掘金', icon: 'globe' },
+          { path: 'https://github.com/David-banana', title: 'Github', icon: 'github' },
+          { path: 'https://blog.csdn.net/weixin_44439085', title: 'CSDN', icon: 'globe' },
           { path: 'https://my.oschina.net/u/3871516', title: '开源中国', icon: 'globe' },
-          { path: 'https://www.zhihu.com/people/fairy-ever/activities', title: '知乎', icon: 'globe' },
-          { path: 'https://segmentfault.com/blog/liyang-note-book', title: 'segmentfault 专栏', icon: 'globe' },
-          { path: 'http://www.fairyever.com/', title: 'www.fairyever.com', icon: 'globe' }
+          { path: 'https://www.zhihu.com/people/fairy-ever/activities', title: '知乎', icon: 'globe' }
         ]
       }
     ]

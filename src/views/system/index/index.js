@@ -24,7 +24,7 @@ export function getTeacherNum () {
 
 export function getEmployeeNum () {
   return request({
-    url: '/Employee/getAllEmployeeInfo',
+    url: '/Employee/getAllEmployeeNum',
     method: 'post'
   })
 }
