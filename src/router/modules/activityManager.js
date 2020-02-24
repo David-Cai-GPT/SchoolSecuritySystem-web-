@@ -12,6 +12,7 @@ export default {
   redirect: { name: 'demo-components-index' },
   component: layoutHeaderAside,
   children: (pre => [
-    { path: 'activityApply', name: `${pre}userinformation`, component: _import('function/activityManager/activityApply/index.vue'), meta: { ...meta, title: '活动申报' } }
+    { path: 'activityApply', name: `${pre}activityApply`, component: _import('function/activityManager/activityApply/index.vue'), meta: { ...meta, title: '活动申报' } },
+    { path: 'activityInfo', name: `${pre}activityInfo`, component: _import('function/activityManager/activityInfo/index.vue'), meta: { ...meta, title: '活动列表' } }
   ])('function-activityManager-')
 }
