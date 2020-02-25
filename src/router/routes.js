@@ -8,6 +8,7 @@ import element from './modules/element'
 import business from './modules/business'
 import query from './modules/query'
 import activityManager from './modules/activityManager'
+import visitorManager from './modules/visitorManager'
 
 import layoutHeaderAside from '@/layout/header-aside'
 
@@ -68,7 +69,8 @@ const frameIn = [
   element,
   business,
   query,
-  activityManager
+  activityManager,
+  visitorManager
 ]
 
 /**

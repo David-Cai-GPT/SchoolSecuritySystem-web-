@@ -18,6 +18,8 @@ import Frame from './modules/demo-frame'
 import Query from './modules/QueryAllInfomation'
 // 正式开发活动活动管理功能
 import activityManager from './modules/ActivityManager'
+// 正式开发访客管理功能
+import visitorManager from './modules/VisitorManager'
 // 菜单 侧边栏
 export const menuAside = [
   demoComponents,
@@ -29,7 +31,8 @@ export const menuAside = [
   demoD2Crud,
   Frame,
   Query,
-  activityManager
+  activityManager,
+  visitorManager
 ]
 
 // 菜单 顶栏
@@ -45,6 +48,7 @@ export const menuHeader = [
     children: [
       Query, // 查询
       activityManager, // 活动管理
+      visitorManager, // 访客管理
       demoD2Crud,
       demoComponents,
       demoElement,
