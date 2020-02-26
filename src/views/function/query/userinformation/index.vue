@@ -3,6 +3,7 @@
     <template slot="header">查询用户信息</template>
      <el-table
       :data="Userinfomation"
+      border
       style="width: 100%">
       <el-table-column
         prop="username"

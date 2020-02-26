@@ -3,6 +3,7 @@
     <template slot="header">查询管理学生信息</template>
      <el-table
       :data="Studentinfomation"
+      border
       style="width: 100%">
       <el-table-column
         prop="name"

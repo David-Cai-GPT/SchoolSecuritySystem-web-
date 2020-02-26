@@ -25,4 +25,7 @@ export default {
 
 <style lang="scss">
 @import '~@/assets/style/public-class.scss';
+body .el-table th.gutter{
+display: table-cell!important;
+}
 </style>
