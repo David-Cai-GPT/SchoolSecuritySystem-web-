@@ -9,6 +9,7 @@ import business from './modules/business'
 import query from './modules/query'
 import activityManager from './modules/activityManager'
 import visitorManager from './modules/visitorManager'
+import carRecord from './modules/carRecord'
 
 import layoutHeaderAside from '@/layout/header-aside'
 
@@ -70,7 +71,8 @@ const frameIn = [
   business,
   query,
   activityManager,
-  visitorManager
+  visitorManager,
+  carRecord
 ]
 
 /**
