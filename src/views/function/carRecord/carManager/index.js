@@ -6,3 +6,11 @@ export function getAllCaryInfo () {
     method: 'post'
   })
 }
+
+export function carOut (data) {
+  return request({
+    url: '/Car/carOutRecord',
+    method: 'post',
+    data: data
+  })
+}

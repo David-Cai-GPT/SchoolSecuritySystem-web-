@@ -18,6 +18,10 @@
         label="访问时间">
       </el-table-column>
       <el-table-column
+        prop="visitorendtime"
+        label="访问时间">
+      </el-table-column>
+      <el-table-column
         prop="applicantname"
         label="申请人姓名">
       </el-table-column>
@@ -36,8 +40,14 @@
       <el-table-column
         label="操作">
         <template slot-scope="scope">
+          <template v-if="scope.row.visitorendtime == null">
          <el-button type="success" :disabled = boolean1 size="small" @click="visitorSignIn(scope.row)">签到</el-button>
          <el-button type="info" :disabled = boolean2 size="small" @click="visitorSignOut(scope.row)">签退</el-button>
+         </template>
+         <template v-else>
+         <el-button type="success" :disabled = true size="small" @click="visitorSignIn(scope.row)">签到</el-button>
+         <el-button type="info" :disabled = true size="small" @click="visitorSignOut(scope.row)">签退</el-button>
+         </template>
         </template>
       </el-table-column>
     </el-table>
