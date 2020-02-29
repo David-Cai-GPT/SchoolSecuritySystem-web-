@@ -36,7 +36,34 @@
       </el-col>
     </el-row>
      <div>
-      <ve-pie :data="{
+         <el-table
+      :data="Activityinfomation"
+      border
+      height = "400"
+      style="width: 70%;display:inline-block"
+      >
+      <el-table-column
+        prop="activityname"
+        label="活动名称">
+      </el-table-column>
+      <el-table-column
+        prop="applicantname"
+        label="申请人姓名">
+      </el-table-column>
+      <el-table-column
+        prop="college"
+        label="主办学院">
+      </el-table-column>
+      <el-table-column
+        prop="place"
+        label="活动地点">
+      </el-table-column>
+      <el-table-column
+        prop="type"
+        label="活动类型">
+      </el-table-column>
+    </el-table>
+      <ve-pie style="width: 30%;display:inline-block" :data="{
         columns: ['role', 'number'],
         rows: [
           { 'role': '学生', 'number': studentNum },
@@ -49,7 +76,7 @@
 </template>
 
 <script>
-import { getStudentNum, getUserNum, getTeacherNum, getEmployeeNum } from './index'
+import { getStudentNum, getUserNum, getTeacherNum, getEmployeeNum, getAllActivityInfo } from './index'
 export default {
   data () {
     return {
@@ -57,7 +84,8 @@ export default {
       studentNum: 0,
       teacherNum: 0,
       employeeNum: 0,
-      userNum: 0
+      userNum: 0,
+      Activityinfomation: []
     }
   },
   mounted: function () {
@@ -76,6 +104,9 @@ export default {
       })
       getEmployeeNum({}).then((response) => {
         this.employeeNum = response
+      })
+      getAllActivityInfo({}).then((response) => {
+        this.Activityinfomation = response
       })
     }
   }

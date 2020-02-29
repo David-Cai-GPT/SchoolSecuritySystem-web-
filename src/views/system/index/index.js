@@ -29,4 +29,11 @@ export function getEmployeeNum () {
   })
 }
 
+export function getAllActivityInfo () {
+  return request({
+    url: '/Activity/allActivityInfo',
+    method: 'post'
+  })
+}
+
 export default page
