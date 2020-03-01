@@ -7,3 +7,10 @@ export function CarRecord (data) {
     data: data
   })
 }
+
+export function getSurplusNumber () {
+  return request({
+    url: '/Car/surplusParkNumber',
+    method: 'post'
+  })
+}
