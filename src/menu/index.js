@@ -22,6 +22,8 @@ import activityManager from './modules/ActivityManager'
 import visitorManager from './modules/VisitorManager'
 // 正式开发车辆管理功能
 import carRecord from './modules/CarRecord'
+// 正是开发设备管理功能
+import equipmentManager from './modules/EquipmentManager'
 // 菜单 侧边栏
 export const menuAside = [
   demoComponents,
@@ -35,7 +37,8 @@ export const menuAside = [
   Query,
   activityManager,
   visitorManager,
-  carRecord
+  carRecord,
+  equipmentManager
 ]
 
 // 菜单 顶栏
@@ -53,6 +56,7 @@ export const menuHeader = [
       activityManager, // 活动管理
       visitorManager, // 访客管理
       carRecord, // 车辆管理
+      equipmentManager, // 设备管理
       demoD2Crud,
       demoComponents,
       demoElement,

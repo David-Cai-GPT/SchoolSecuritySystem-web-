@@ -10,7 +10,7 @@ import query from './modules/query'
 import activityManager from './modules/activityManager'
 import visitorManager from './modules/visitorManager'
 import carRecord from './modules/carRecord'
-
+import equipmentManager from './modules/equipmentManager'
 import layoutHeaderAside from '@/layout/header-aside'
 
 // 由于懒加载页面太多的话会造成webpack热更新太慢，所以开发环境不使用懒加载，只有生产环境使用懒加载
@@ -72,7 +72,8 @@ const frameIn = [
   query,
   activityManager,
   visitorManager,
-  carRecord
+  carRecord,
+  equipmentManager
 ]
 
 /**
