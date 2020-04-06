@@ -6,3 +6,11 @@ export function getAllTeacherInformation () {
     method: 'post'
   })
 }
+
+export function editTeacherInformation (params) {
+  return request({
+    url: '/Teacher/editTeacherInfo',
+    method: 'post',
+    data: params
+  })
+}

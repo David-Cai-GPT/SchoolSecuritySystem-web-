@@ -6,3 +6,11 @@ export function getAllEmployeeInformation () {
     method: 'post'
   })
 }
+
+export function editEmployeeInformation (params) {
+  return request({
+    url: '/Employee/editEmployeeInfo',
+    method: 'post',
+    data: params
+  })
+}
