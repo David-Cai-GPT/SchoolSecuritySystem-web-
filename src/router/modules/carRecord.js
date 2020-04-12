@@ -12,7 +12,9 @@ export default {
   redirect: { name: 'demo-components-index' },
   component: layoutHeaderAside,
   children: (pre => [
-    { path: 'carInRecord', name: `${pre}carInRecord`, component: _import('function/carRecord/carInRecord/index.vue'), meta: { ...meta, title: '车辆如园记录' } },
-    { path: 'carManager', name: `${pre}carManager`, component: _import('function/carRecord/carManager/index.vue'), meta: { ...meta, title: '车辆记录查询' } }
+    { path: 'carInRecord', name: `${pre}carInRecord`, component: _import('function/carRecord/carInRecord/index.vue'), meta: { ...meta, title: '车辆入园记录' } },
+    { path: 'carManager', name: `${pre}carManager`, component: _import('function/carRecord/carManager/index.vue'), meta: { ...meta, title: '车辆记录查询' } },
+    { path: 'userAccount', name: `${pre}userAccount`, component: _import('function/carRecord/userAccount/index.vue'), meta: { ...meta, title: '用户信息查询' } },
+    { path: 'userInvest', name: `${pre}userInvest`, component: _import('function/carRecord/userInvest/index.vue'), meta: { ...meta, title: '用户充值' } }
   ])('function-query-')
 }

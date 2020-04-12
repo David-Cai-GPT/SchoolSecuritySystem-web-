@@ -70,7 +70,8 @@ export const menuHeader = [
           { path: 'https://github.com/David-banana', title: 'Github', icon: 'github' },
           { path: 'https://blog.csdn.net/weixin_44439085', title: 'CSDN', icon: 'globe' },
           { path: 'https://my.oschina.net/u/3871516', title: '开源中国', icon: 'globe' },
-          { path: 'https://www.zhihu.com/people/fairy-ever/activities', title: '知乎', icon: 'globe' }
+          { path: 'https://www.zhihu.com/people/fairy-ever/activities', title: '知乎', icon: 'globe' },
+          { path: 'http://www.caidawei.cn', title: '个人网站', icon: 'globe' }
         ]
       }
     ]

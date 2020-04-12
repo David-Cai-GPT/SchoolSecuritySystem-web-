@@ -9,6 +9,13 @@ export default {
         { path: `${pre}carInRecord`, title: '车辆进园' },
         { path: `${pre}carManager`, title: '入园车辆信息' }
       ]
+    },
+    {
+      title: '充值卡用户管理',
+      children: [
+        { path: `${pre}userAccount`, title: '用户信息查询' },
+        { path: `${pre}userInvest`, title: '用户充值' }
+      ]
     }
   ])('/function/carRecord/')
 }
