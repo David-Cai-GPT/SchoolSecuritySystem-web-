@@ -42,12 +42,7 @@
       <el-table-column
         prop="email"
         label="邮箱"
-        width="300">
-      </el-table-column>
-      <el-table-column
-        prop="role"
-        label="角色"
-        width="180">
+        width="250">
       </el-table-column>
       <el-table-column
         prop="work"

@@ -14,7 +14,7 @@ export default {
       title: '充值卡用户管理',
       children: [
         { path: `${pre}userAccount`, title: '用户信息查询' },
-        { path: `${pre}userInvest`, title: '用户充值' }
+        { path: `${pre}userInvest`, title: '创建新的充值用户' }
       ]
     }
   ])('/function/carRecord/')

@@ -37,11 +37,7 @@
       <el-table-column
         prop="email"
         label="邮箱"
-        width="180">
-      </el-table-column>
-      <el-table-column
-        prop="role"
-        label="角色">
+        width="200">
       </el-table-column>
       <el-table-column
         label="操作">

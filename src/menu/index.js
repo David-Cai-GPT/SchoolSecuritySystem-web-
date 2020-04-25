@@ -22,8 +22,10 @@ import activityManager from './modules/ActivityManager'
 import visitorManager from './modules/VisitorManager'
 // 正式开发车辆管理功能
 import carRecord from './modules/CarRecord'
-// 正是开发设备管理功能
+// 正式开发设备管理功能
 import equipmentManager from './modules/EquipmentManager'
+// 正式开发考勤管理模块功能
+import attenceManager from './modules/AttenceManager'
 // 菜单 侧边栏
 export const menuAside = [
   demoComponents,
@@ -38,7 +40,8 @@ export const menuAside = [
   activityManager,
   visitorManager,
   carRecord,
-  equipmentManager
+  equipmentManager,
+  attenceManager
 ]
 
 // 菜单 顶栏
@@ -53,6 +56,7 @@ export const menuHeader = [
     icon: 'puzzle-piece',
     children: [
       Query, // 查询
+      attenceManager, // 考勤管理
       activityManager, // 活动管理
       visitorManager, // 访客管理
       carRecord, // 车辆管理
