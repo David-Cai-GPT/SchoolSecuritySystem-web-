@@ -15,3 +15,11 @@ export function personAttence (params) {
     data: params
   })
 }
+
+export function attenceAna (params) {
+  return request({
+    url: '/Attence/attenceAna',
+    method: 'get',
+    params: params
+  })
+}

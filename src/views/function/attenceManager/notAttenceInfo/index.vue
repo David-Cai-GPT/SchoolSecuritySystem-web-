@@ -5,6 +5,7 @@
     <el-tab-pane label="学生" name="1">学生</el-tab-pane>
     <el-tab-pane label="教师" name="2">教师</el-tab-pane>
     <el-tab-pane label="职工" name="3">职工</el-tab-pane>
+    <el-button style="margin-top:10px;margin-bottom:10px" type="info" @click="dialogVisible = true">统计图表</el-button>
   </el-tabs>
      <el-table
       :data="tableInfo"
@@ -59,16 +60,33 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-dialog
+  title="统计图表"
+  :visible.sync="dialogVisible"
+  width="40%">
+  <div>
+      <ve-histogram :data="chartData"></ve-histogram>
+    </div>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+  </span>
+</el-dialog>
       </d2-container>
 </template>
 
 <script>
-import { getNotAttenceInfo, personAttence } from './index'
+import { getNotAttenceInfo, personAttence, attenceAna } from './index'
 export default {
   data () {
     return {
+      dialogVisible: false,
       tableInfo: '',
-      searchRole: '1'
+      searchRole: '1',
+      chartData: {
+        columns: [],
+        rows: {}
+      }
     }
   },
   mounted: function () {
@@ -81,12 +99,24 @@ export default {
       }).then((response) => {
         this.tableInfo = response
       })
+      attenceAna({
+        role: this.searchRole
+      }).then((response) => {
+        this.chartData.columns = response.columns
+        this.chartData.rows = response.rows
+      })
     },
     handleClick () {
       getNotAttenceInfo({
         role: this.searchRole
       }).then((response) => {
         this.tableInfo = response
+      })
+      attenceAna({
+        role: this.searchRole
+      }).then((response) => {
+        this.chartData.columns = response.columns
+        this.chartData.rows = response.rows
       })
     },
     attence (scope) {
@@ -116,5 +146,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
