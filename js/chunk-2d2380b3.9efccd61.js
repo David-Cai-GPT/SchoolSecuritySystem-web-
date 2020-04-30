@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d2380b3"],{fe64:function(t,n,d){"use strict";d.r(n),d.d(n,"addNewStudent",(function(){return u}));var e=d("9bd2");function u(t){return Object(e["a"])({url:"/Student/addNewStudent",method:"post",data:t})}}}]);

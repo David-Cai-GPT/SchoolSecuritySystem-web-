@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d21368b"],{ad0b:function(t,n,i){"use strict";i.r(n),i.d(n,"getAllActivityInfo",(function(){return o}));var c=i("9bd2");function o(){return Object(c["a"])({url:"/Activity/allActivityInfo",method:"post"})}}}]);

@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c155d"],{4638:function(n,t,c){"use strict";c.r(t),c.d(t,"AddNewInvestUser",(function(){return d}));var e=c("9bd2");function d(n){return Object(e["a"])({url:"/UserAccount/addNewAccountUser",method:"post",data:n})}}}]);

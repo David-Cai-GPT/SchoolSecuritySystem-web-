@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0f0fc6"],{"9f69":function(n,t,o){"use strict";o.r(t),o.d(t,"getAllUserInformation",(function(){return e}));var r=o("9bd2");function e(){return Object(r["a"])({url:"/User/getAllInformation",method:"post"})}}}]);

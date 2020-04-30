@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d216c2f"],{c49a:function(e,c,n){"use strict";n.r(c),n.d(c,"addNewTeacher",(function(){return d}));var a=n("9bd2");function d(e){return Object(a["a"])({url:"/Teacher/addNewTeacher",method:"post",data:e})}}}]);

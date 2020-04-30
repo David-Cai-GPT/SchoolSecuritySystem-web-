@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0d7248"],{"760c":function(t,n,c){"use strict";c.r(n),c.d(n,"ActivityApply",(function(){return p}));var i=c("9bd2");function p(t){return Object(i["a"])({url:"/Activity/activityApply",method:"post",data:t})}}}]);
