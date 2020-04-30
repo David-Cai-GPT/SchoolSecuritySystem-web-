@@ -26,6 +26,8 @@ import carRecord from './modules/CarRecord'
 import equipmentManager from './modules/EquipmentManager'
 // 正式开发考勤管理模块功能
 import attenceManager from './modules/AttenceManager'
+// 正式开发门禁管理模块功能
+import entranceGuard from './modules/EntranceGuard'
 // 菜单 侧边栏
 export const menuAside = [
   demoComponents,
@@ -41,7 +43,8 @@ export const menuAside = [
   visitorManager,
   carRecord,
   equipmentManager,
-  attenceManager
+  attenceManager,
+  entranceGuard
 ]
 
 // 菜单 顶栏
@@ -61,6 +64,7 @@ export const menuHeader = [
       visitorManager, // 访客管理
       carRecord, // 车辆管理
       equipmentManager, // 设备管理
+      entranceGuard, // 门禁管理
       demoD2Crud,
       demoComponents,
       demoElement,
